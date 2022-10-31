@@ -7,6 +7,7 @@ public class EnemyHealths : MonoBehaviour
 {
     [SerializeField] int _health = 1;
     public UnityEvent EventOnTakeDamage;
+    public UnityEvent EventToDie;
 
     public void TakeDamage(int damageValue) {
         _health-=damageValue;
@@ -17,5 +18,6 @@ public class EnemyHealths : MonoBehaviour
     }
     public void Die() {        
         Destroy(gameObject);
+        EventToDie!.Invoke();
     }
 }

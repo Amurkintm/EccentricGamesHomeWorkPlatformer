@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TakeDamageEnter : MonoBehaviour
-{
-    //[SerializeField] int _damageValue;
+{    
     [SerializeField] EnemyHealths _enemyHealths;
     [SerializeField] bool _destroyOnAnyCollosion;
     private void OnCollisionEnter(Collision collision) {
@@ -13,9 +12,7 @@ public class TakeDamageEnter : MonoBehaviour
             _enemyHealths.Die();
         }
     }
-    private void OnTriggerEnter(Collider other) {
-        //if (other.isTrigger == false) {
-        //}
+    private void OnTriggerEnter(Collider other) {        
             Touch(other);
     }
     void Touch(Collider collider) {

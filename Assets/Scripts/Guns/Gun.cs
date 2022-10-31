@@ -6,7 +6,9 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] protected Rigidbody BulletPref;
     [SerializeField] protected AudioSource ShotSound;
+    [SerializeField] protected AudioSource NoShotSound;
     [SerializeField] protected Transform SpawnBullet;
+    [SerializeField] protected ParticleSystem ShotEffect;
     [SerializeField] GameObject _flash;
     [SerializeField] protected float BulletSpeed;   
     [SerializeField] protected float ReloadTime = 1f;
@@ -35,6 +37,7 @@ public class Gun : MonoBehaviour
     public virtual void Shot() {        
         ShotSound.pitch = Random.Range(1f, 1.2f);
         ShotSound.Play();
+        ShotEffect.Play();
         GreatBullet();
         StartCoroutine(SetFlash());
         StartCoroutine(Reload());

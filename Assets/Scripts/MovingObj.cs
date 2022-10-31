@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingObj : MonoBehaviour
-{
-    // “ут мне помогли,но € сам хочу уметь так писать...
-
+{  
     [SerializeField] List<GameObject> _points = new List<GameObject>();
     [SerializeField] GameObject _obj;
     [SerializeField] float _speed;
@@ -17,7 +15,7 @@ public class MovingObj : MonoBehaviour
         _targetPoint = _points[_countPoint].transform;
     }
     void Update() {
-        if (_obj != null) {
+        if (_obj) {
             if (_obj.transform.position == _targetPoint.position) {
                 _countPoint++;
                 if (_countPoint >= _points.Count) {

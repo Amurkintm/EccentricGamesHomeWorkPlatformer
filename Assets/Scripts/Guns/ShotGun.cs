@@ -34,8 +34,9 @@ public class ShotGun : Gun
             base.Shot();
             NumberOfBullets--;
             UpdateText();
-        } else {
-            _playerArmory.TakeGunByIndex(0);
+        } else if (Input.GetMouseButtonDown(0)) {            
+            NoShotSound.volume = .3f;
+            NoShotSound.Play();            
         }
     }
     public override void Activate() {
@@ -52,8 +53,7 @@ public class ShotGun : Gun
     void UpdateText() {
         _bulletsText.text = "Пули: " + NumberOfBullets.ToString();
     }
-    public override void AddBullets(int numberOfBullets) {
-        //base.AddBullets(numberOfBullets);
+    public override void AddBullets(int numberOfBullets) {        
         NumberOfBullets += numberOfBullets;
         UpdateText();
         _playerArmory.TakeGunByIndex(2);
@@ -61,6 +61,7 @@ public class ShotGun : Gun
     private void OnDestroy() {
         NumberOfBullets = 0;
     }
+    
 }
 
 

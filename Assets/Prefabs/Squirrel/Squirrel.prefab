@@ -199,6 +199,52 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &625612549437271855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3310291764998383183}
+  - component: {fileID: 3389389216486883345}
+  m_Layer: 0
+  m_Name: SpawnEffect (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3310291764998383183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625612549437271855}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3986311351945334602}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3389389216486883345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625612549437271855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee3f533f1529494999bce2fbf1fa78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1463778210903209731, guid: 5e1344069232fd942931e3d6d5796181, type: 3}
+  _spawn: {fileID: 3310291764998383183}
 --- !u!1 &1121449751884001889
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e410460314cb80346a0a20ac73f4b896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageValue: 1
   _enemyHealths: {fileID: 3986311351945334604}
   _destroyOnAnyCollosion: 0
 --- !u!114 &3986311351706559182
@@ -639,6 +684,7 @@ Transform:
   - {fileID: 3986311351706559178}
   - {fileID: 3986311352049324651}
   - {fileID: 3986311352273965915}
+  - {fileID: 3310291764998383183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -669,13 +715,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d7110ad2b63f142b1867d611a65731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 80
   EventOnTakeDamage:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3986311351945334605}
         m_TargetAssemblyTypeName: Blink, Assembly-CSharp
         m_MethodName: StartBlink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EventToDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3389389216486883345}
+        m_TargetAssemblyTypeName: PrefabGreator, Assembly-CSharp
+        m_MethodName: Greate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -723,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233642a1eff99be4b9059a0017830a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceToActivate: 15
+  DistanceToActivate: 25
 --- !u!1 &3986311352049324649
 GameObject:
   m_ObjectHideFlags: 0

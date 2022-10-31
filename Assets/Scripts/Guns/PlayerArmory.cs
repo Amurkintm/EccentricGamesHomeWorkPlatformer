@@ -24,16 +24,15 @@ public class PlayerArmory : MonoBehaviour
         _guns[gunIndex].AddBullets(numberOfBullets);
     }
     private void Update() {
-        
+        KeyShorts();
         if (Input.mouseScrollDelta == Vector2.up) {
             _gunIndex++;
             ScrollGun();
-        }
-        else if (Input.mouseScrollDelta == Vector2.down) {
+        } else if (Input.mouseScrollDelta == Vector2.down) {
             _gunIndex--;
             ScrollGun();
         }
-        
+
     }
     void ScrollGun() {
 
@@ -43,5 +42,19 @@ public class PlayerArmory : MonoBehaviour
             _gunIndex = _guns.Count - 1;
         }
         TakeGunByIndex(_gunIndex);
+    }
+    void KeyShorts() {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            _gunIndex = 0;
+            ScrollGun();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            _gunIndex = 1;
+            ScrollGun();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            _gunIndex = 2;
+            ScrollGun();
+        }
     }
 }

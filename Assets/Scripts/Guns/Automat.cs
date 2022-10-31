@@ -31,8 +31,9 @@ public class Automat : Gun
             NumberOfBullets--;
             UpdateText();
         }
-        else {
-            _playerArmory.TakeGunByIndex(0);
+        else if(Input.GetMouseButtonDown(0)) {            
+            NoShotSound.volume = .3f;
+            NoShotSound.Play();            
         }
     }
     public override void Activate() {

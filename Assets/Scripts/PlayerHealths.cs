@@ -19,12 +19,14 @@ public class PlayerHealths : MonoBehaviour
         _healthsIcon.DisplayHealths(_health);
     }
     public void TakeDamage(int damageValue) {
-        if (_inVulnerable == false) {
+        if (!_inVulnerable) {
             _health -= damageValue;
             if (_health <= 0) {                
                 _health = 0;
                 Die();
+                _healthsIcon.DisplayHealths(_health);
                 _targetManager.GameOver();
+                return;
             }
             EventOnTakeDamege?.Invoke();
             _healthsIcon.DisplayHealths(_health);
@@ -44,9 +46,8 @@ public class PlayerHealths : MonoBehaviour
         _AddHealthsSound.Play();
     }
     public void Die() {
-        //Debug.Log("You Lose!!!");
-        
+        //Debug.Log("You Lose!!!");        
         Destroy(gameObject);        
-        //gameObject.SetActive(false);        
+        //gameObject.SetActive(false);
     }    
 }

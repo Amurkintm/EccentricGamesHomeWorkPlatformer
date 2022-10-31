@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741570165076620956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: 0, z: -2.452}
+  m_LocalPosition: {x: -3.29, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -215,6 +215,7 @@ Transform:
   - {fileID: 1741570165076620957}
   - {fileID: 1741570166809141344}
   - {fileID: 1741570166604333155}
+  - {fileID: 2897417187363347285}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -317,13 +318,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d7110ad2b63f142b1867d611a65731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
+  _health: 120
   EventOnTakeDamage:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1741570165383835808}
         m_TargetAssemblyTypeName: Blink, Assembly-CSharp
         m_MethodName: StartBlink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EventToDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5340134557316610324}
+        m_TargetAssemblyTypeName: PrefabGreator, Assembly-CSharp
+        m_MethodName: Greate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -371,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233642a1eff99be4b9059a0017830a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceToActivate: 15
+  DistanceToActivate: 30
 --- !u!1 &1741570165415263028
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e410460314cb80346a0a20ac73f4b896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageValue: 1
   _enemyHealths: {fileID: 1741570165383835809}
   _destroyOnAnyCollosion: 0
 --- !u!114 &1741570165415263026
@@ -507,7 +522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e410460314cb80346a0a20ac73f4b896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageValue: 1
   _enemyHealths: {fileID: 1741570165383835809}
   _destroyOnAnyCollosion: 0
 --- !u!114 &1741570165966716410
@@ -578,7 +592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741570166809141347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.11, y: 0, z: 2.699}
+  m_LocalPosition: {x: 6.11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,6 +682,52 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2884840014953076881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2897417187363347285}
+  - component: {fileID: 5340134557316610324}
+  m_Layer: 0
+  m_Name: SpawnEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2897417187363347285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884840014953076881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.14, y: 0.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1741570165383835810}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5340134557316610324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884840014953076881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee3f533f1529494999bce2fbf1fa78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1463778210903209731, guid: 5e1344069232fd942931e3d6d5796181, type: 3}
+  _spawn: {fileID: 2897417187363347285}
 --- !u!1 &2904951928504304244
 GameObject:
   m_ObjectHideFlags: 0
